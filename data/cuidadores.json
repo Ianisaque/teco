@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "nome": "Nikolas Ferreira",
+    "servico": "Pet Sitter (Hospedagem)",
+    "servicos": ["hospedagem", "cuidados"],
+    "bairro": "Copacabana",
+    "preco": "R$ 60/dia",
+    "avaliacao": 4.9,
+    "foto": "img/nikolas.png",
+    "sobre": "Rotina tranquila em casa, com espaço para o pet descansar e brincar."
+  },
+  {
+    "id": 2,
+    "nome": "Giselle Tonha",
+    "servico": "Dog Walker (Passeadora)",
+    "servicos": ["passeio"],
+    "bairro": "Botafogo",
+    "preco": "R$ 35/passeio",
+    "avaliacao": 4.8,
+    "foto": "img/giselle.png",
+    "sobre": "Passeios pelo bairro com tempo para farejar, brincar e voltar bem cansado."
+  },
+  {
+    "id": 3,
+    "nome": "Ian Gostoso",
+    "servico": "Pet Sitter & Passeador",
+    "servicos": ["passeio", "hospedagem"],
+    "bairro": "Flamengo",
+    "preco": "R$ 50/dia",
+    "avaliacao": 5.0,
+    "foto": "img/ian.png",
+    "sobre": "Combina passeios com hospedagem para quem precisa de apoio por mais de um dia."
+  }
+]

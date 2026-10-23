@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teco | Cuidadores de confiança para o seu pet</title>
+  <meta name="description" content="O Teco conecta tutores a pessoas que passeiam, hospedam e cuidam de pets. Encontre um cuidador para o seu melhor amigo.">
+  <meta name="theme-color" content="#FBF8F1">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preload" href="fonts/poppins-400.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="fonts/poppins-700.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    // Aplica o tema salvo antes da primeira pintura, para evitar "piscar".
+    document.documentElement.classList.add('js');
+    try { if (localStorage.getItem('teco:contraste') === 'alto') document.documentElement.dataset.contraste = 'alto'; } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="site-header" id="topo">
+    <div class="container header__inner">
+      <a class="brand" href="#inicio" aria-label="Teco, ir para o início">
+        <img src="img/logo_teco.png" alt="Teco" width="119" height="43">
+      </a>
+
+      <div class="menu" id="menu">
+        <nav aria-label="Principal">
+          <ul class="nav__list">
+            <li><a class="nav__link" href="#inicio">Início</a></li>
+            <li><a class="nav__link" href="#servicos">Serviços</a></li>
+            <li><a class="nav__link" href="#como-funciona">Como funciona</a></li>
+            <li><a class="nav__link" href="#seja-cuidador">Seja um cuidador</a></li>
+          </ul>
+        </nav>
+        <div class="menu__actions">
+          <button class="btn btn--ghost" type="button" data-open="dialog-login">Entrar</button>
+          <button class="btn btn--primary" type="button" data-open="dialog-cadastro">Cadastrar-se</button>
+        </div>
+      </div>
+
+      <div class="header__tools">
+        <button class="icon-btn" id="btn-contraste" type="button" aria-pressed="false" aria-label="Alto contraste" title="Alto contraste">
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#contrast"></use></svg>
+        </button>
+        <button class="icon-btn menu-toggle" id="btn-menu" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+          <svg class="icon icon--open" aria-hidden="true" focusable="false"><use href="img/icons.svg#menu"></use></svg>
+          <svg class="icon icon--close" aria-hidden="true" focusable="false"><use href="img/icons.svg#close"></use></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- Hero -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <p class="eyebrow">Passeio, hospedagem e cuidados</p>
+          <h1 id="hero-titulo">Seu pet bem cuidado. <span class="hero__accent">Você mais tranquilo.</span></h1>
+          <p class="lead">Encontre pessoas de confiança para passear, hospedar e cuidar do seu melhor amigo sempre que precisar.</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary btn--lg" href="#busca" data-focus-search>
+              Encontrar um cuidador
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#arrow-right"></use></svg>
+            </a>
+            <a class="btn btn--outline btn--lg" href="#seja-cuidador">Quero ser um cuidador</a>
+          </div>
+        </div>
+        <div class="hero__art">
+          <img src="img/hero-pets.svg" width="560" height="490" alt="Um cachorro e um gato apoiados lado a lado em uma bancada azul">
+        </div>
+      </div>
+    </section>
+
+    <!-- Busca -->
+    <section class="search container" id="busca" aria-labelledby="busca-titulo">
+      <form class="search__card" id="form-busca" novalidate>
+        <h2 class="search__title" id="busca-titulo">Encontre o cuidador ideal</h2>
+        <div class="search__fields">
+          <div class="field">
+            <label for="busca-servico">Tipo de serviço</label>
+            <select id="busca-servico" name="servico" required aria-describedby="erro-busca-servico">
+              <option value="">Selecione</option>
+              <option value="passeio">Passeio</option>
+              <option value="hospedagem">Hospedagem</option>
+              <option value="cuidados">Cuidados por algumas horas</option>
+            </select>
+            <p class="field__error" id="erro-busca-servico" hidden></p>
+          </div>
+          <div class="field">
+            <label for="busca-bairro">Localização</label>
+            <select id="busca-bairro" name="bairro">
+              <option value="">Todas as regiões</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="busca-data">Data do serviço</label>
+            <input id="busca-data" name="data" type="date" required aria-describedby="erro-busca-data">
+            <p class="field__error" id="erro-busca-data" hidden></p>
+          </div>
+          <button class="btn btn--primary btn--lg search__submit" type="submit">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#search"></use></svg>
+            Buscar cuidadores
+          </button>
+        </div>
+        <p class="search__hint">A data fica registrada na busca. Verificar a disponibilidade por dia depende do agendamento, que ainda não existe nesta demonstração.</p>
+      </form>
+    </section>
+
+    <!-- Serviços -->
+    <section class="section" id="servicos" aria-labelledby="servicos-titulo">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Serviços</p>
+          <h2 id="servicos-titulo">Cuidado para cada momento da rotina</h2>
+          <p>Escolha o tipo de ajuda de que seu pet precisa agora e encontre quem oferece.</p>
+        </header>
+
+        <div class="cards-3">
+          <article class="service-card reveal">
+            <span class="service-card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#walk"></use></svg></span>
+            <h3>Passeios</h3>
+            <p>Encontre alguém para passear com seu cachorro quando você estiver ocupado.</p>
+            <button class="link-btn" type="button" data-servico="passeio">
+              Saber mais
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#arrow-right"></use></svg>
+            </button>
+          </article>
+          <article class="service-card reveal">
+            <span class="service-card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#home"></use></svg></span>
+            <h3>Hospedagem</h3>
+            <p>Encontre um lugar acolhedor para seu pet durante viagens ou ausências.</p>
+            <button class="link-btn" type="button" data-servico="hospedagem">
+              Saber mais
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#arrow-right"></use></svg>
+            </button>
+          </article>
+          <article class="service-card reveal">
+            <span class="service-card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#clock"></use></svg></span>
+            <h3>Cuidados temporários</h3>
+            <p>Encontre alguém que possa cuidar do seu bichinho por algumas horas.</p>
+            <button class="link-btn" type="button" data-servico="cuidados">
+              Saber mais
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#arrow-right"></use></svg>
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section class="section section--surface" id="como-funciona" aria-labelledby="como-titulo">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Como funciona</p>
+          <h2 id="como-titulo">Três passos para deixar seu pet em boas mãos</h2>
+        </header>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step__badge" aria-hidden="true">
+              <svg class="icon" focusable="false"><use href="img/icons.svg#list-check"></use></svg>
+              <span class="step__number">1</span>
+            </span>
+            <h3>Escolha o serviço de que precisa</h3>
+            <p>Passeio, hospedagem ou cuidados por algumas horas: você diz o que seu pet precisa.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__badge" aria-hidden="true">
+              <svg class="icon" focusable="false"><use href="img/icons.svg#search-person"></use></svg>
+              <span class="step__number">2</span>
+            </span>
+            <h3>Encontre um cuidador compatível</h3>
+            <p>Compare perfis, regiões de atendimento e preços e escolha quem combina com a rotina do seu bichinho.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__badge" aria-hidden="true">
+              <svg class="icon" focusable="false"><use href="img/icons.svg#handshake"></use></svg>
+              <span class="step__number">3</span>
+            </span>
+            <h3>Combine os detalhes</h3>
+            <p>Acerte horários e cuidados especiais e deixe seu pet em boas mãos.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Cuidadores em destaque -->
+    <section class="section" id="cuidadores" aria-labelledby="cuidadores-titulo">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Cuidadores em destaque</p>
+          <h2 id="cuidadores-titulo">Conheça alguns perfis</h2>
+        </header>
+
+        <p class="notice">
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#info"></use></svg>
+          <span>Perfis, avaliações e preços são de demonstração e não representam cuidadores ou avaliações reais.</span>
+        </p>
+
+        <div class="results-bar">
+          <p class="results-bar__summary" id="resultado-resumo" role="status" aria-live="polite"></p>
+          <button class="link-btn" type="button" id="btn-limpar-filtros" hidden>Limpar filtros</button>
+        </div>
+
+        <div class="cards-caregivers" id="lista-cuidadores" aria-busy="true"></div>
+      </div>
+    </section>
+
+    <!-- Seja um cuidador -->
+    <section class="section section--tight" id="seja-cuidador" aria-labelledby="cuidador-titulo">
+      <div class="container">
+        <div class="panel reveal">
+          <div class="panel__text">
+            <p class="eyebrow eyebrow--on-dark">Seja um cuidador</p>
+            <h2 id="cuidador-titulo">Transforme seu carinho por pets em uma oportunidade.</h2>
+            <p>No Teco, quem gosta de animais pode oferecer passeios, hospedagem e cuidados por algumas horas, escolhendo os serviços, a região e os horários que cabem na sua rotina.</p>
+            <button class="btn btn--accent btn--lg" type="button" data-open="dialog-cadastro" data-tipo="cuidador">
+              Conhecer o cadastro
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#arrow-right"></use></svg>
+            </button>
+          </div>
+          <ul class="panel__list">
+            <li>
+              <span class="panel__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#list-check"></use></svg></span>
+              <div><h3>Escolha seus serviços</h3><p>Passeio, hospedagem ou cuidados por algumas horas.</p></div>
+            </li>
+            <li>
+              <span class="panel__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#calendar-check"></use></svg></span>
+              <div><h3>Organize sua agenda</h3><p>Defina a região de atendimento e os dias em que está disponível.</p></div>
+            </li>
+            <li>
+              <span class="panel__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#chat"></use></svg></span>
+              <div><h3>Converse com os tutores</h3><p>Combine os detalhes de cada cuidado antes de começar.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="section section--surface" id="depoimentos" aria-labelledby="depoimentos-titulo">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Depoimentos</p>
+          <h2 id="depoimentos-titulo">Como pode ser a experiência no Teco</h2>
+        </header>
+
+        <p class="notice">
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#info"></use></svg>
+          <span>Conteúdo ilustrativo: os depoimentos abaixo são exemplos criados para a demonstração e não são avaliações reais.</span>
+        </p>
+
+        <div class="cards-3">
+          <figure class="quote reveal">
+            <blockquote>Consegui viajar sem preocupação. O cuidador mandava notícias do Thor durante o dia.</blockquote>
+            <figcaption>
+              <span class="avatar" aria-hidden="true">M</span>
+              <span><strong>Marina</strong><small>Tutora do Thor (exemplo)</small></span>
+            </figcaption>
+          </figure>
+          <figure class="quote reveal">
+            <blockquote>Os passeios deram à Luna uma rotina nova, e eu volto do trabalho com a casa em paz.</blockquote>
+            <figcaption>
+              <span class="avatar" aria-hidden="true">R</span>
+              <span><strong>Rafael</strong><small>Tutor da Luna (exemplo)</small></span>
+            </figcaption>
+          </figure>
+          <figure class="quote reveal">
+            <blockquote>Comecei cuidando de um pet nos fins de semana e hoje atendo vários tutores do bairro.</blockquote>
+            <figcaption>
+              <span class="avatar" aria-hidden="true">C</span>
+              <span><strong>Camila</strong><small>Cuidadora (exemplo)</small></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img src="img/logo_teco.png" alt="Teco" width="104" height="38">
+        <p>Plataforma que conecta tutores de pets a pessoas que oferecem passeio, hospedagem e cuidados.</p>
+        <ul class="social" aria-label="Redes sociais (links demonstrativos)">
+          <li><button class="icon-btn icon-btn--soft" type="button" data-demo="Instagram" aria-label="Instagram"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#instagram"></use></svg></button></li>
+          <li><button class="icon-btn icon-btn--soft" type="button" data-demo="Facebook" aria-label="Facebook"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#facebook"></use></svg></button></li>
+          <li><button class="icon-btn icon-btn--soft" type="button" data-demo="WhatsApp" aria-label="WhatsApp"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#whatsapp"></use></svg></button></li>
+        </ul>
+      </div>
+
+      <nav class="footer__col" aria-label="Navegação do rodapé">
+        <h2>Navegação</h2>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#seja-cuidador">Seja um cuidador</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__col">
+        <h2>Plataforma</h2>
+        <ul>
+          <li><button class="link-plain" type="button" data-demo="Termos de uso">Termos de uso</button></li>
+          <li><button class="link-plain" type="button" data-demo="Política de privacidade">Política de privacidade</button></li>
+          <li><button class="link-plain" type="button" data-demo="Central de ajuda">Central de ajuda</button></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h2>Contato</h2>
+        <ul>
+          <li><a href="mailto:contato@teco.example">contato@teco.example</a></li>
+          <li class="footer__note">E-mail de demonstração</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; <span id="ano">2026</span> Teco. Projeto de demonstração para portfólio.</p>
+    </div>
+  </footer>
+
+  <!-- Entrar -->
+  <dialog class="dialog" id="dialog-login" aria-labelledby="login-titulo">
+    <div class="dialog__panel">
+      <button class="icon-btn dialog__close" type="button" data-close aria-label="Fechar">
+        <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#close"></use></svg>
+      </button>
+      <h2 id="login-titulo">Entrar no Teco</h2>
+      <p class="dialog__lead">Acesse sua conta para acompanhar seus pedidos.</p>
+      <form class="form" id="form-login" novalidate>
+        <div class="field">
+          <label for="login-email">E-mail</label>
+          <input id="login-email" name="email" type="email" autocomplete="email" required aria-describedby="erro-login-email">
+          <p class="field__error" id="erro-login-email" hidden></p>
+        </div>
+        <div class="field">
+          <label for="login-senha">Senha</label>
+          <input id="login-senha" name="senha" type="password" autocomplete="current-password" required aria-describedby="erro-login-senha">
+          <p class="field__error" id="erro-login-senha" hidden></p>
+        </div>
+        <p class="form-status" role="status" aria-live="polite" hidden></p>
+        <button class="btn btn--primary btn--block" type="submit">Entrar</button>
+      </form>
+      <p class="dialog__switch">Ainda não tem conta? <button class="link-plain" type="button" data-switch="dialog-cadastro">Cadastre-se</button></p>
+    </div>
+  </dialog>
+
+  <!-- Cadastrar-se -->
+  <dialog class="dialog" id="dialog-cadastro" aria-labelledby="cadastro-titulo">
+    <div class="dialog__panel">
+      <button class="icon-btn dialog__close" type="button" data-close aria-label="Fechar">
+        <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#close"></use></svg>
+      </button>
+      <h2 id="cadastro-titulo">Criar conta no Teco</h2>
+      <p class="dialog__lead">Leva menos de um minuto.</p>
+      <form class="form" id="form-cadastro" novalidate>
+        <fieldset class="choice">
+          <legend>Como você quer usar o Teco?</legend>
+          <label class="choice__item">
+            <input type="radio" name="tipo" value="tutor" checked>
+            <span>Sou tutor</span>
+          </label>
+          <label class="choice__item">
+            <input type="radio" name="tipo" value="cuidador">
+            <span>Quero ser cuidador</span>
+          </label>
+        </fieldset>
+        <div class="field">
+          <label for="cad-nome">Nome completo</label>
+          <input id="cad-nome" name="nome" type="text" autocomplete="name" required aria-describedby="erro-cad-nome">
+          <p class="field__error" id="erro-cad-nome" hidden></p>
+        </div>
+        <div class="field">
+          <label for="cad-email">E-mail</label>
+          <input id="cad-email" name="email" type="email" autocomplete="email" required aria-describedby="erro-cad-email">
+          <p class="field__error" id="erro-cad-email" hidden></p>
+        </div>
+        <div class="field">
+          <label for="cad-senha">Senha</label>
+          <input id="cad-senha" name="senha" type="password" autocomplete="new-password" minlength="8" required aria-describedby="dica-cad-senha erro-cad-senha">
+          <p class="field__hint" id="dica-cad-senha">Use pelo menos 8 caracteres.</p>
+          <p class="field__error" id="erro-cad-senha" hidden></p>
+        </div>
+        <p class="form-status" role="status" aria-live="polite" hidden></p>
+        <button class="btn btn--primary btn--block" type="submit">Criar conta</button>
+      </form>
+      <p class="dialog__switch">Já tem conta? <button class="link-plain" type="button" data-switch="dialog-login">Entrar</button></p>
+    </div>
+  </dialog>
+
+  <!-- Perfil do cuidador -->
+  <dialog class="dialog dialog--wide" id="dialog-perfil" aria-labelledby="perfil-titulo">
+    <div class="dialog__panel">
+      <button class="icon-btn dialog__close" type="button" data-close aria-label="Fechar">
+        <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#close"></use></svg>
+      </button>
+      <div id="perfil-conteudo"></div>
+    </div>
+  </dialog>
+
+  <div class="toast-region" id="toast-region" role="status" aria-live="polite"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
