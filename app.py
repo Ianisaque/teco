@@ -86,9 +86,4 @@ if __name__ == "__main__":
     porta = int(os.environ.get("PORT", 8000))
     servidor = ThreadingHTTPServer(("0.0.0.0", porta), TecoHandler)
     print(f"🚀 Servidor online na porta {porta}")
-    try:
-        servidor.serve_forever()
-    except KeyboardInterrupt:
-        print("\nServidor encerrado.")
-    finally:
-        servidor.server_close()
+    servidor.serve_forever()

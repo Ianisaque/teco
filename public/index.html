@@ -55,58 +55,134 @@
   <main id="conteudo">
     <!-- Hero -->
     <section class="hero" id="inicio" aria-labelledby="hero-titulo">
-      <div class="container hero__grid">
-        <div class="hero__text">
-          <p class="eyebrow">Passeio, hospedagem e cuidados</p>
-          <h1 id="hero-titulo">Seu pet bem cuidado. <span class="hero__accent">Você mais tranquilo.</span></h1>
-          <p class="lead">Encontre pessoas de confiança para passear, hospedar e cuidar do seu melhor amigo sempre que precisar.</p>
-          <div class="hero__cta">
-            <a class="btn btn--primary btn--lg" href="#busca" data-focus-search>
-              Encontrar um cuidador
-              <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#arrow-right"></use></svg>
-            </a>
-            <a class="btn btn--outline btn--lg" href="#seja-cuidador">Quero ser um cuidador</a>
-          </div>
-        </div>
-        <div class="hero__art">
-          <img src="img/hero-pets.svg" width="560" height="490" alt="Um cachorro e um gato apoiados lado a lado em uma bancada azul">
+      <div class="container hero__inner">
+        <p class="eyebrow">Passeio, hospedagem e cuidados</p>
+        <h1 id="hero-titulo">Seu pet bem cuidado. <span class="hero__accent">Você mais tranquilo.</span></h1>
+        <p class="lead">Encontre pessoas de confiança para passear, hospedar e cuidar do seu melhor amigo sempre que precisar.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary btn--lg" href="#busca" data-focus-search>
+            Encontrar um cuidador
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#arrow-right"></use></svg>
+          </a>
+          <a class="btn btn--outline btn--lg" href="#seja-cuidador">Quero ser um cuidador</a>
         </div>
       </div>
     </section>
 
-    <!-- Busca -->
+    <!-- Busca (os bichos ficam sobre o card) -->
     <section class="search container" id="busca" aria-labelledby="busca-titulo">
-      <form class="search__card" id="form-busca" novalidate>
-        <h2 class="search__title" id="busca-titulo">Encontre o cuidador ideal</h2>
-        <div class="search__fields">
-          <div class="field">
-            <label for="busca-servico">Tipo de serviço</label>
-            <select id="busca-servico" name="servico" required aria-describedby="erro-busca-servico">
-              <option value="">Selecione</option>
-              <option value="passeio">Passeio</option>
-              <option value="hospedagem">Hospedagem</option>
-              <option value="cuidados">Cuidados por algumas horas</option>
-            </select>
-            <p class="field__error" id="erro-busca-servico" hidden></p>
-          </div>
-          <div class="field">
-            <label for="busca-bairro">Localização</label>
-            <select id="busca-bairro" name="bairro">
-              <option value="">Todas as regiões</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="busca-data">Data do serviço</label>
-            <input id="busca-data" name="data" type="date" required aria-describedby="erro-busca-data">
-            <p class="field__error" id="erro-busca-data" hidden></p>
-          </div>
-          <button class="btn btn--primary btn--lg search__submit" type="submit">
-            <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#search"></use></svg>
-            Buscar cuidadores
-          </button>
+      <div class="stage">
+        <div class="pets" id="pets">
+          <img src="img/pets.webp" width="992" height="432" alt="Um lagarto, um hamster, um buldogue, um coelho, um peixinho no aquário e um gato enfileirados sobre uma prateleira de madeira" draggable="false">
+          <svg class="pets__eyes" viewBox="0 0 992 432" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="pupila" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#050507"/>
+                <stop offset="0.6" stop-color="#0b0b10"/>
+                <stop offset="1" stop-color="#3b3e52"/>
+              </linearGradient>
+            </defs>
+        <g class="eye" data-cx="226.4" data-cy="164" data-rx="12" data-ry="11.5" data-r="7.4">
+          <g class="eye__pupil" transform="translate(226.4 164)">
+            <circle r="7.4" fill="url(#pupila)"/>
+            <circle cx="2.5" cy="-2.8" r="1.8" fill="#fff"/>
+          </g>
+        </g>
+        <g class="eye" data-cx="263.1" data-cy="151.1" data-rx="6.5" data-ry="7.5" data-r="5.1">
+          <g class="eye__pupil" transform="translate(263.1 151.1)">
+            <circle r="5.1" fill="url(#pupila)"/>
+            <circle cx="1.7" cy="-1.9" r="1.2" fill="#fff"/>
+          </g>
+        </g>
+        <g class="eye" data-cx="315.5" data-cy="180" data-rx="7.5" data-ry="7.5" data-r="4.6">
+          <g class="eye__pupil" transform="translate(315.5 180)">
+            <circle r="4.6" fill="url(#pupila)"/>
+            <circle cx="1.6" cy="-1.7" r="1.2" fill="#fff"/>
+          </g>
+        </g>
+        <g class="eye" data-cx="343.1" data-cy="179" data-rx="7" data-ry="7" data-r="4.1">
+          <g class="eye__pupil" transform="translate(343.1 179)">
+            <circle r="4.1" fill="url(#pupila)"/>
+            <circle cx="1.4" cy="-1.6" r="1.2" fill="#fff"/>
+          </g>
+        </g>
+        <g class="eye" data-cx="444.3" data-cy="58.5" data-rx="18" data-ry="19.5" data-r="10.6">
+          <g class="eye__pupil" transform="translate(444.3 58.5)">
+            <circle r="10.6" fill="url(#pupila)"/>
+            <circle cx="3.6" cy="-4" r="2.5" fill="#fff"/>
+          </g>
+        </g>
+        <g class="eye" data-cx="527.3" data-cy="57.7" data-rx="18" data-ry="19.5" data-r="10.6">
+          <g class="eye__pupil" transform="translate(527.3 57.7)">
+            <circle r="10.6" fill="url(#pupila)"/>
+            <circle cx="3.6" cy="-4" r="2.5" fill="#fff"/>
+          </g>
+        </g>
+        <g class="eye" data-cx="592.1" data-cy="147" data-rx="13.5" data-ry="13.5" data-r="7.4">
+          <g class="eye__pupil" transform="translate(592.1 147)">
+            <circle r="7.4" fill="url(#pupila)"/>
+            <circle cx="2.5" cy="-2.8" r="1.8" fill="#fff"/>
+          </g>
+        </g>
+        <g class="eye" data-cx="628.7" data-cy="147.1" data-rx="13" data-ry="13.5" data-r="7.8">
+          <g class="eye__pupil" transform="translate(628.7 147.1)">
+            <circle r="7.8" fill="url(#pupila)"/>
+            <circle cx="2.7" cy="-3" r="1.9" fill="#fff"/>
+          </g>
+        </g>
+        <g class="eye" data-cx="821.4" data-cy="83.6" data-rx="15.5" data-ry="15.5" data-r="8.7">
+          <g class="eye__pupil" transform="translate(821.4 83.6)">
+            <circle r="8.7" fill="url(#pupila)"/>
+            <circle cx="3" cy="-3.3" r="2.1" fill="#fff"/>
+          </g>
+        </g>
+        <g class="eye" data-cx="865.1" data-cy="83.2" data-rx="15.5" data-ry="15" data-r="8.7">
+          <g class="eye__pupil" transform="translate(865.1 83.2)">
+            <circle r="8.7" fill="url(#pupila)"/>
+            <circle cx="3" cy="-3.3" r="2.1" fill="#fff"/>
+          </g>
+        </g>
+        <g class="eye" data-cx="769.2" data-cy="202.7" data-rx="9.5" data-ry="9.7" data-r="5">
+          <g class="eye__pupil" transform="translate(769.2 202.7)">
+            <circle r="5" fill="url(#pupila)"/>
+            <circle cx="1.7" cy="-1.9" r="1.2" fill="#fff"/>
+          </g>
+        </g>
+          </svg>
         </div>
-        <p class="search__hint">A data fica registrada na busca. Verificar a disponibilidade por dia depende do agendamento, que ainda não existe nesta demonstração.</p>
-      </form>
+
+        <form class="search__card" id="form-busca" novalidate>
+          <h2 class="search__title" id="busca-titulo">Encontre o cuidador ideal</h2>
+          <div class="search__fields">
+            <div class="field">
+              <label for="busca-servico">Tipo de serviço</label>
+              <select id="busca-servico" name="servico" required aria-describedby="erro-busca-servico">
+                <option value="">Selecione</option>
+                <option value="passeio">Passeio</option>
+                <option value="hospedagem">Hospedagem</option>
+                <option value="cuidados">Cuidados por algumas horas</option>
+              </select>
+              <p class="field__error" id="erro-busca-servico" hidden></p>
+            </div>
+            <div class="field">
+              <label for="busca-bairro">Localização</label>
+              <select id="busca-bairro" name="bairro">
+                <option value="">Todas as regiões</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="busca-data">Data do serviço</label>
+              <input id="busca-data" name="data" type="date" required aria-describedby="erro-busca-data">
+              <p class="field__error" id="erro-busca-data" hidden></p>
+            </div>
+            <button class="btn btn--primary btn--lg search__submit" type="submit">
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#search"></use></svg>
+              Buscar cuidadores
+            </button>
+          </div>
+          <p class="search__hint">A data fica registrada na busca. Verificar a disponibilidade por dia depende do agendamento, que ainda não existe nesta demonstração.</p>
+        </form>
+      </div>
     </section>
 
     <!-- Serviços -->

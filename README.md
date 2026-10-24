@@ -7,6 +7,7 @@ Este é um projeto de demonstração: a interface é funcional, mas os cuidadore
 ## O que já funciona
 
 - Página inicial responsiva (computador, tablet e celular) com cabeçalho, hero, busca, serviços, como funciona, cuidadores, "Seja um cuidador", depoimentos e rodapé.
+- No hero, seis bichos em pé sobre o card de busca: os olhos seguem o cursor (no celular, olham em volta sozinhos). Com `prefers-reduced-motion` ativo, ficam parados.
 - Busca por tipo de serviço, região e data, com validação e mensagens de erro. Os filtros de serviço e região são aplicados pela API.
 - Estados de carregamento, lista vazia e erro na lista de cuidadores.
 - Perfil do cuidador em janela modal.
@@ -34,10 +35,10 @@ public/                 tudo que o navegador acessa
   css/styles.css
   js/
     main.js             ponto de entrada
-    components/         nav, busca, cuidadores, formulários, dialogs, toast...
+    components/         nav, busca, cuidadores, olhos dos pets, formulários, dialogs, toast...
     services/api.js     acesso à API (ponto único para integrações futuras)
     lib/                utilitários e tipos de serviço
-  img/                  logo, fotos, ilustração e sprite de ícones
+  img/                  logo, fotos dos cuidadores, ilustração dos pets e sprite de ícones
   fonts/                Poppins
 ```
 
@@ -50,6 +51,10 @@ Só a pasta `public/` fica acessível pelo navegador; `app.py` e `data/` não.
 | `GET /api/cuidadores` | Lista cuidadores. Aceita `?servico=passeio\|hospedagem\|cuidados` e `?bairro=Botafogo`. |
 | `GET /api/bairros` | Regiões atendidas pelos cuidadores cadastrados. |
 
+## Como os olhos funcionam
+
+`public/index.html` tem um SVG sobre a imagem com uma pupila por olho. Cada olho guarda o centro e o raio da parte branca em `data-*` (coordenadas da imagem). `public/js/components/pet-eyes.js` calcula a direção do cursor e move cada pupila sem sair do olho. Para trocar a imagem, é preciso refazer essas medidas.
+
 ## Próximos passos
 
 - Banco de dados no lugar de `data/cuidadores.json` (`carregar_cuidadores` em `app.py`).
@@ -61,4 +66,4 @@ Só a pasta `public/` fica acessível pelo navegador; `app.py` e `data/` não.
 - Ícones: [Material Design Icons](https://pictogrammers.com/library/mdi/) (Apache License 2.0).
 - Fonte: [Poppins](https://fonts.google.com/specimen/Poppins) (SIL Open Font License).
 - Logo, fotos dos perfis e identidade visual: arquivos originais do projeto.
-- Ilustração do cachorro e do gato (`public/img/hero-pets.svg`): criada para este projeto.
+- Ilustração dos pets (`public/img/pets.webp`): gerada pelo autor do projeto. As pupilas foram removidas da imagem e são desenhadas em SVG por cima (`index.html`), para poderem se mover.

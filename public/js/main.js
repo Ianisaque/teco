@@ -6,6 +6,7 @@ import { initSearch } from "./components/search.js";
 import { initCaregivers } from "./components/caregivers.js";
 import { initAuthForms } from "./components/auth-forms.js";
 import { initReveal } from "./components/reveal.js";
+import { initPetEyes } from "./components/pet-eyes.js";
 import { showToast } from "./components/toast.js";
 
 initNav();
@@ -15,6 +16,7 @@ initSearch();
 initCaregivers();
 initAuthForms();
 initReveal();
+initPetEyes();
 
 // Links de demonstração (redes sociais e políticas): avisam que ainda não existem.
 $$("[data-demo]").forEach((botao) => {
