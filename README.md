@@ -1,48 +1,86 @@
-# Teco
+<div align="center">
 
-Plataforma que conecta tutores de pets a pessoas que oferecem **passeio, hospedagem e cuidados por algumas horas**.
+<img src="public/img/logo_teco.png" alt="Teco" width="220">
 
-Este é um projeto de demonstração: a interface é funcional, mas os cuidadores, avaliações, preços e depoimentos são **exemplos** e ainda não existe banco de dados, autenticação ou agendamento.
+**Seu pet bem cuidado. Você mais tranquilo.**
 
-## O que já funciona
+O Teco conecta tutores de pets a pessoas que oferecem passeio, hospedagem e cuidados por algumas horas.
 
-- Página inicial responsiva (computador, tablet e celular) com cabeçalho, hero, busca, serviços, como funciona, cuidadores, "Seja um cuidador", depoimentos e rodapé.
-- No hero, seis bichos em pé sobre o card de busca: os olhos seguem o cursor (no celular, olham em volta sozinhos). Com `prefers-reduced-motion` ativo, ficam parados.
-- Busca por tipo de serviço, região e data, com validação e mensagens de erro. Os filtros de serviço e região são aplicados pela API.
-- Estados de carregamento, lista vazia e erro na lista de cuidadores.
-- Perfil do cuidador em janela modal.
-- Formulários de entrar e cadastrar-se com validação (nada é enviado nem salvo).
-- Modo de alto contraste, lembrado entre visitas.
-- Acessibilidade: link para pular ao conteúdo, foco visível, rótulos e mensagens associados aos campos, respeito a `prefers-reduced-motion`.
+<img src="docs/olhos.gif" alt="Os bichos do hero acompanhando o cursor com os olhos" width="720">
+
+</div>
+
+> **Projeto de demonstração.** A interface e a API local funcionam, mas os cuidadores, as avaliações, os preços e os depoimentos são **exemplos**. Ainda não existem banco de dados, autenticação nem agendamento.
+
+## Sobre o projeto
+
+Quem tem um pet nem sempre consegue estar presente: uma viagem, um dia corrido, um passeio que não dá para fazer. O Teco é a ideia de uma plataforma que aproxima esse tutor de alguém de confiança, seja para passear, hospedar ou cuidar do bichinho por algumas horas.
+
+Este repositório é o front-end da plataforma, com uma pequena API em Python que serve dados de demonstração. O foco foi construir uma experiência de uso completa e bem cuidada, sem frameworks, com HTML, CSS e JavaScript puros.
+
+## Funcionalidades
+
+- **Hero interativo:** seis bichos em pé sobre o card de busca, com os olhos acompanhando o cursor. No celular, que não tem cursor, eles olham em volta sozinhos. Quem desativa animações no sistema vê os bichos parados.
+- **Busca por serviço, região e data**, com validação e mensagens de erro. Os filtros de serviço e região são aplicados pela API.
+- **Cuidadores em destaque:** cards com foto, região, serviços, avaliação e preço, com estados de carregamento, lista vazia e erro. O perfil abre em uma janela.
+- **"Saber mais" de cada serviço:** janela com a explicação do serviço, os cuidadores de demonstração que o oferecem e um botão que aplica o filtro na lista.
+- **Entrar e cadastrar-se**, com validação dos campos (nada é enviado nem salvo).
+- **Alto contraste**, com a preferência lembrada entre visitas.
+- **Responsivo** para computador, tablet e celular.
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/hero-desktop.png" alt="Página inicial no computador" width="520"></td>
+    <td align="center"><img src="docs/mobile.png" alt="Página inicial no celular" width="200"></td>
+  </tr>
+  <tr>
+    <td align="center">Computador</td>
+    <td align="center">Celular</td>
+  </tr>
+</table>
+
+<p align="center">
+  <img src="docs/alto-contraste.png" alt="Página inicial no modo de alto contraste" width="520"><br>
+  Modo de alto contraste
+</p>
+
+## Tecnologias
+
+- **HTML5, CSS3 e JavaScript** (módulos ES), sem bibliotecas nem frameworks.
+- **Python 3**, só com a biblioteca padrão (`http.server`), para servir o site e a API.
+- Ícones do [Material Design Icons](https://pictogrammers.com/library/mdi/) e fonte [Poppins](https://fonts.google.com/specimen/Poppins), ambos guardados no próprio projeto.
 
 ## Como executar
 
 Requer Python 3.8 ou superior. Não há dependências para instalar.
 
 ```bash
+git clone https://github.com/Ianisaque/teco.git
+cd teco
 python app.py
 ```
 
-Depois abra http://localhost:8000. Para usar outra porta, defina a variável `PORT`.
+Depois abra http://localhost:8000. Para usar outra porta, defina a variável de ambiente `PORT`.
 
 ## Estrutura
 
 ```
-app.py                  servidor (biblioteca padrão do Python) e API
-data/cuidadores.json    dados de demonstração
-public/                 tudo que o navegador acessa
+app.py                    servidor e API (biblioteca padrão do Python)
+data/cuidadores.json      dados de demonstração
+docs/                     imagens usadas neste README
+public/                   tudo que o navegador acessa
   index.html
-  css/styles.css
+  css/                    styles.css e servicos.css
   js/
-    main.js             ponto de entrada
-    components/         nav, busca, cuidadores, olhos dos pets, formulários, dialogs, toast...
-    services/api.js     acesso à API (ponto único para integrações futuras)
-    lib/                utilitários e tipos de serviço
-  img/                  logo, fotos dos cuidadores, ilustração dos pets e sprite de ícones
-  fonts/                Poppins
+    main.js               ponto de entrada
+    components/           nav, busca, cuidadores, olhos dos pets, serviços, formulários...
+    services/api.js       acesso à API, ponto único para integrações futuras
+    lib/                  utilitários e tipos de serviço
+  img/                    logo, fotos, ilustração dos pets, ícones
+  fonts/                  Poppins
 ```
 
-Só a pasta `public/` fica acessível pelo navegador; `app.py` e `data/` não.
+Só a pasta `public/` fica acessível pelo navegador. O `app.py` e a pasta `data/` não são servidos.
 
 ## API
 
@@ -53,11 +91,19 @@ Só a pasta `public/` fica acessível pelo navegador; `app.py` e `data/` não.
 
 ## Como os olhos funcionam
 
-`public/index.html` tem um SVG sobre a imagem com uma pupila por olho. Cada olho guarda o centro e o raio da parte branca em `data-*` (coordenadas da imagem). `public/js/components/pet-eyes.js` calcula a direção do cursor e move cada pupila sem sair do olho. Para trocar a imagem, é preciso refazer essas medidas.
+O `index.html` tem um SVG sobre a imagem dos pets, com uma pupila para cada olho. Cada olho guarda no HTML o centro e o raio da parte branca (atributos `data-*`, em coordenadas da imagem). O `public/js/components/pet-eyes.js` calcula a direção do cursor e move cada pupila sem deixá-la sair do olho. A imagem (`public/img/pets.webp`) não tem pupilas, elas são sempre desenhadas pelo SVG. Para trocar a imagem, é preciso refazer essas medidas.
+
+## Acessibilidade
+
+- Link para pular direto ao conteúdo e foco visível em todos os controles.
+- Campos com rótulo e mensagens de erro ligadas a eles.
+- Janelas modais com o elemento `<dialog>`, que fecham com `Esc`.
+- Respeito à preferência do sistema por menos movimento (`prefers-reduced-motion`).
+- Modo de alto contraste.
 
 ## Próximos passos
 
-- Banco de dados no lugar de `data/cuidadores.json` (`carregar_cuidadores` em `app.py`).
+- Banco de dados no lugar de `data/cuidadores.json` (função `carregar_cuidadores` em `app.py`).
 - Autenticação: rotas de login e cadastro, ligadas a `public/js/components/auth-forms.js`.
 - Agendamento por data, para que o campo de data da busca passe a filtrar a disponibilidade.
 
@@ -65,5 +111,5 @@ Só a pasta `public/` fica acessível pelo navegador; `app.py` e `data/` não.
 
 - Ícones: [Material Design Icons](https://pictogrammers.com/library/mdi/) (Apache License 2.0).
 - Fonte: [Poppins](https://fonts.google.com/specimen/Poppins) (SIL Open Font License).
-- Logo, fotos dos perfis e identidade visual: arquivos originais do projeto.
-- Ilustração dos pets (`public/img/pets.webp`): gerada pelo autor do projeto. As pupilas foram removidas da imagem e são desenhadas em SVG por cima (`index.html`), para poderem se mover.
+- Logo, fotos dos perfis e identidade visual: arquivos do projeto original.
+- Ilustração dos pets e ícones dos serviços: fornecidos pelo autor do projeto.
