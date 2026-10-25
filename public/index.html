@@ -10,6 +10,7 @@
   <link rel="preload" href="fonts/poppins-400.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="fonts/poppins-700.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/servicos.css">
   <script>
     // Aplica o tema salvo antes da primeira pintura, para evitar "piscar".
     document.documentElement.classList.add('js');
@@ -196,28 +197,28 @@
 
         <div class="cards-3">
           <article class="service-card reveal">
-            <span class="service-card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#walk"></use></svg></span>
+            <span class="service-card__icon"><img src="img/servico-passeio.png" alt="" width="64" height="64"></span>
             <h3>Passeios</h3>
             <p>Encontre alguém para passear com seu cachorro quando você estiver ocupado.</p>
-            <button class="link-btn" type="button" data-servico="passeio">
+            <button class="link-btn" type="button" data-info="passeio" aria-haspopup="dialog" aria-label="Saber mais sobre passeios">
               Saber mais
               <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#arrow-right"></use></svg>
             </button>
           </article>
           <article class="service-card reveal">
-            <span class="service-card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#home"></use></svg></span>
+            <span class="service-card__icon"><img src="img/servico-hospedagem.png" alt="" width="64" height="64"></span>
             <h3>Hospedagem</h3>
             <p>Encontre um lugar acolhedor para seu pet durante viagens ou ausências.</p>
-            <button class="link-btn" type="button" data-servico="hospedagem">
+            <button class="link-btn" type="button" data-info="hospedagem" aria-haspopup="dialog" aria-label="Saber mais sobre hospedagem">
               Saber mais
               <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#arrow-right"></use></svg>
             </button>
           </article>
           <article class="service-card reveal">
-            <span class="service-card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#clock"></use></svg></span>
+            <span class="service-card__icon"><img src="img/servico-cuidados.png" alt="" width="64" height="64"></span>
             <h3>Cuidados temporários</h3>
             <p>Encontre alguém que possa cuidar do seu bichinho por algumas horas.</p>
-            <button class="link-btn" type="button" data-servico="cuidados">
+            <button class="link-btn" type="button" data-info="cuidados" aria-haspopup="dialog" aria-label="Saber mais sobre cuidados temporários">
               Saber mais
               <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#arrow-right"></use></svg>
             </button>
@@ -476,6 +477,16 @@
         <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#close"></use></svg>
       </button>
       <div id="perfil-conteudo"></div>
+    </div>
+  </dialog>
+
+  <!-- Saber mais (serviços) -->
+  <dialog class="dialog dialog--wide" id="dialog-servico" aria-labelledby="servico-titulo">
+    <div class="dialog__panel">
+      <button class="icon-btn dialog__close" type="button" data-close aria-label="Fechar">
+        <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#close"></use></svg>
+      </button>
+      <div id="servico-conteudo"></div>
     </div>
   </dialog>
 

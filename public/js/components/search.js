@@ -64,16 +64,6 @@ export function initSearch() {
     });
   });
 
-  // Botões "Saber mais" dos cards de serviço pré-selecionam o tipo de serviço.
-  document.addEventListener("click", (evento) => {
-    const gatilho = evento.target.closest("[data-servico]");
-    if (!gatilho) return;
-    servico.value = gatilho.dataset.servico;
-    mostrarErro(regras[0]);
-    rolarPara($("#busca"));
-    setTimeout(() => bairro.focus({ preventScroll: true }), 350);
-  });
-
   // "Encontrar um cuidador" no hero leva ao formulário já com o foco no primeiro campo.
   $("[data-focus-search]")?.addEventListener("click", () => {
     setTimeout(() => servico.focus({ preventScroll: true }), 350);

@@ -1,0 +1,65 @@
+/* Janela "Saber mais" dos serviços e ícones dos cards.
+   Usa os tokens de cor definidos em styles.css (inclusive no alto contraste). */
+
+/* Ícones coloridos dentro do quadro de cada card: ocupam uma fração do quadro,
+   então acompanham qualquer tamanho que ele tenha. */
+.service-card__icon img { width: 64%; height: 64%; object-fit: contain; }
+
+.service-info { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.service-info__head { display: flex; align-items: center; gap: 16px; padding-right: 40px; min-width: 0; }
+.service-info__head > div { min-width: 0; }
+.service-info__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: var(--tint);
+}
+.service-info__icon img { width: 48px; height: 48px; object-fit: contain; }
+.service-info__lead { margin-top: 4px; color: var(--muted); }
+
+.service-info__subtitle { margin-top: 12px; font-size: 1rem; letter-spacing: 0; }
+
+.service-info__steps { display: grid; gap: 10px; counter-reset: passo; }
+.service-info__steps li {
+  position: relative;
+  padding-left: 40px;
+  counter-increment: passo;
+}
+.service-info__steps li::before {
+  content: counter(passo);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.service-info__people ul { display: grid; gap: 8px; }
+.service-info__people li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+.service-info__people img { width: 44px; height: 44px; flex: none; border-radius: 50%; object-fit: cover; object-position: 50% 20%; }
+.service-info__who { display: flex; flex: 1; flex-direction: column; min-width: 0; line-height: 1.3; }
+.service-info__who small { color: var(--muted); font-size: 0.8125rem; }
+.service-info__price { font-weight: 700; color: var(--brand-strong); white-space: nowrap; }
+
+.service-info__note { font-size: 0.8125rem; color: var(--muted); }
+.service-info__actions { display: grid; gap: 10px; margin-top: 8px; }
+.service-info__actions .btn { white-space: normal; text-align: center; }
+@media (min-width: 520px) { .service-info__actions { grid-template-columns: 1.4fr 1fr; } }
