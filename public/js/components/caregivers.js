@@ -117,7 +117,7 @@ function cartao(c) {
   return `
     <article class="caregiver">
       <div class="caregiver__photo">
-        <img src="${escapeHtml(c.foto)}" alt="Foto de ${escapeHtml(c.nome)}" loading="lazy">
+        <img src="${escapeHtml(c.foto)}" alt="Ilustração de ${escapeHtml(c.nome)}" loading="lazy">
         <span class="tag">Demonstração</span>
       </div>
       <div class="caregiver__body">
@@ -140,7 +140,7 @@ function abrirPerfil(id) {
   $("#perfil-conteudo").innerHTML = `
     <div class="profile">
       <div class="profile__head">
-        <img class="profile__photo" src="${escapeHtml(c.foto)}" alt="Foto de ${escapeHtml(c.nome)}">
+        <img class="profile__photo" src="${escapeHtml(c.foto)}" alt="Ilustração de ${escapeHtml(c.nome)}">
         <div>
           <h2 id="perfil-titulo">${escapeHtml(c.nome)}</h2>
           <p class="caregiver__region">${icon("pin")}${escapeHtml(c.bairro)}</p>

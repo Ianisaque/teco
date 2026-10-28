@@ -1,35 +1,113 @@
 [
   {
     "id": 1,
-    "nome": "Nikolas Ferreira",
-    "servico": "Pet Sitter (Hospedagem)",
-    "servicos": ["hospedagem", "cuidados"],
-    "bairro": "Copacabana",
-    "preco": "R$ 60/dia",
+    "nome": "Helena Duarte",
+    "servico": "passeio",
+    "servicos": [
+      "passeio",
+      "cuidados"
+    ],
+    "bairro": "Botafogo",
+    "preco": "R$ 35/passeio",
     "avaliacao": 4.9,
-    "foto": "img/nikolas.png",
-    "sobre": "Rotina tranquila em casa, com espaço para o pet descansar e brincar."
+    "foto": "img/cuidadores/helena.svg",
+    "sobre": "Pedagoga e apaixonada por gatos. Faço visitas curtas com brincadeira e cuidado com a alimentação, e passeios tranquilos para cães de porte pequeno."
   },
   {
     "id": 2,
-    "nome": "Giselle Tonha",
-    "servico": "Dog Walker (Passeadora)",
-    "servicos": ["passeio"],
-    "bairro": "Botafogo",
-    "preco": "R$ 35/passeio",
+    "nome": "Davi Nogueira",
+    "servico": "hospedagem",
+    "servicos": [
+      "hospedagem",
+      "passeio"
+    ],
+    "bairro": "Copacabana",
+    "preco": "R$ 70/dia",
     "avaliacao": 4.8,
-    "foto": "img/giselle.png",
-    "sobre": "Passeios pelo bairro com tempo para farejar, brincar e voltar bem cansado."
+    "foto": "img/cuidadores/davi.svg",
+    "sobre": "Moro em casa com quintal telado e já cuidei de cães de todos os portes. Mando fotos e vídeos todos os dias para o tutor ficar tranquilo."
   },
   {
     "id": 3,
-    "nome": "Ian Gostoso",
-    "servico": "Pet Sitter & Passeador",
-    "servicos": ["passeio", "hospedagem"],
+    "nome": "Bruna Teixeira",
+    "servico": "passeio",
+    "servicos": [
+      "passeio"
+    ],
     "bairro": "Flamengo",
-    "preco": "R$ 50/dia",
+    "preco": "R$ 30/passeio",
+    "avaliacao": 4.7,
+    "foto": "img/cuidadores/bruna.svg",
+    "sobre": "Estudante de veterinária. Passeios de 40 minutos, com água, paciência e atenção ao ritmo de cada cachorro."
+  },
+  {
+    "id": 4,
+    "nome": "Caio Matos",
+    "servico": "hospedagem",
+    "servicos": [
+      "hospedagem",
+      "cuidados"
+    ],
+    "bairro": "Tijuca",
+    "preco": "R$ 55/dia",
+    "avaliacao": 4.6,
+    "foto": "img/cuidadores/caio.svg",
+    "sobre": "Tenho experiência com coelhos, roedores e aves, além de cães e gatos. Aceito medicação e rotina especial combinadas com antecedência."
+  },
+  {
+    "id": 5,
+    "nome": "Luiza Prado",
+    "servico": "cuidados",
+    "servicos": [
+      "cuidados",
+      "hospedagem"
+    ],
+    "bairro": "Ipanema",
+    "preco": "R$ 65/dia",
     "avaliacao": 5.0,
-    "foto": "img/ian.png",
-    "sobre": "Combina passeios com hospedagem para quem precisa de apoio por mais de um dia."
+    "foto": "img/cuidadores/luiza.svg",
+    "sobre": "Cuido de gatos idosos e filhotes em ambiente calmo, sem outros animais, com rotina fiel à de casa."
+  },
+  {
+    "id": 6,
+    "nome": "Mateus Rocha",
+    "servico": "passeio",
+    "servicos": [
+      "passeio",
+      "hospedagem"
+    ],
+    "bairro": "Copacabana",
+    "preco": "R$ 40/passeio",
+    "avaliacao": 4.8,
+    "foto": "img/cuidadores/mateus.svg",
+    "sobre": "Ex-adestrador. Passeios com energia para cães agitados e hospedagem com regras claras e muito carinho."
+  },
+  {
+    "id": 7,
+    "nome": "Aline Barros",
+    "servico": "hospedagem",
+    "servicos": [
+      "hospedagem",
+      "cuidados"
+    ],
+    "bairro": "Botafogo",
+    "preco": "R$ 60/dia",
+    "avaliacao": 4.9,
+    "foto": "img/cuidadores/aline.svg",
+    "sobre": "Trabalho em casa e posso receber pets por vários dias. Apartamento com tela nas janelas e muito espaço para brincar."
+  },
+  {
+    "id": 8,
+    "nome": "Otávio Lima",
+    "servico": "cuidados",
+    "servicos": [
+      "cuidados",
+      "passeio"
+    ],
+    "bairro": "Flamengo",
+    "preco": "R$ 45/visita",
+    "avaliacao": 4.7,
+    "foto": "img/cuidadores/otavio.svg",
+    "sobre": "Aposentado e sempre disponível. Faço visitas de cuidado e caminhadas leves, ótimo para pets idosos."
   }
 ]

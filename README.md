@@ -76,11 +76,22 @@ public/                   tudo que o navegador acessa
     components/           nav, busca, cuidadores, olhos dos pets, serviços, formulários...
     services/api.js       acesso à API, ponto único para integrações futuras
     lib/                  utilitários e tipos de serviço
-  img/                    logo, fotos, ilustração dos pets, ícones
+  img/                    logo, avatares, ilustração dos pets, ícones
   fonts/                  Poppins
 ```
 
 Só a pasta `public/` fica acessível pelo navegador. O `app.py` e a pasta `data/` não são servidos.
+
+## Publicar no Railway
+
+O servidor já lê a porta da variável `PORT` e escuta em `0.0.0.0`, então roda no [Railway](https://railway.com) sem mudanças.
+
+1. No Railway, crie um projeto com **Deploy from GitHub repo** e escolha este repositório.
+2. Em **Settings > Deploy**, confirme o *Start Command* `python app.py` (o `railway.json` e o `Procfile` do repositório já indicam o mesmo comando).
+3. Em **Settings > Networking**, clique em **Generate Domain** para receber o link público.
+4. Coloque o link neste README e na descrição do repositório.
+
+Os planos e limites do Railway mudam com o tempo, então confira os valores atuais em railway.com/pricing.
 
 ## API
 
@@ -111,5 +122,6 @@ O `index.html` tem um SVG sobre a imagem dos pets, com uma pupila para cada olho
 
 - Ícones: [Material Design Icons](https://pictogrammers.com/library/mdi/) (Apache License 2.0).
 - Fonte: [Poppins](https://fonts.google.com/specimen/Poppins) (SIL Open Font License).
-- Logo, fotos dos perfis e identidade visual: arquivos do projeto original.
+- Logo e identidade visual: arquivos do projeto original.
+- Avatares dos cuidadores: ilustrações originais geradas em SVG para este projeto. Todos os perfis são fictícios.
 - Ilustração dos pets e ícones dos serviços: fornecidos pelo autor do projeto.

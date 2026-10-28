@@ -52,6 +52,15 @@ class TecoHandler(SimpleHTTPRequestHandler):
         else:
             super().do_GET()
 
+    def list_directory(self, path):
+        # Não lista o conteúdo de pastas (ex.: /img/); responde 404.
+        self.send_error(404, "Arquivo não encontrado")
+        return None
+
+    def end_headers(self):
+        self.send_header("X-Content-Type-Options", "nosniff")
+        super().end_headers()
+
     def responder_api(self, url):
         parametros = parse_qs(url.query)
         try:
@@ -86,4 +95,9 @@ if __name__ == "__main__":
     porta = int(os.environ.get("PORT", 8000))
     servidor = ThreadingHTTPServer(("0.0.0.0", porta), TecoHandler)
     print(f"🚀 Servidor online na porta {porta}")
-    servidor.serve_forever()
+    try:
+        servidor.serve_forever()
+    except KeyboardInterrupt:
+        print("\nServidor encerrado.")
+    finally:
+        servidor.server_close()
