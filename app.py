@@ -1,7 +1,7 @@
 """Servidor local do Teco.
 
 Serve o site estático (pasta ``public/``) e uma API JSON simples com os dados
-de demonstração (pasta ``data/``). Usa apenas a biblioteca padrão do Python.
+de demonstração (``public/data/cuidadores.json``). Usa apenas a biblioteca padrão do Python.
 
 Rotas da API:
     GET /api/cuidadores?servico=passeio|hospedagem|cuidados&bairro=Botafogo
@@ -20,7 +20,7 @@ from urllib.parse import parse_qs, urlparse
 
 BASE_DIR = Path(__file__).resolve().parent
 PUBLIC_DIR = BASE_DIR / "public"
-DATA_FILE = BASE_DIR / "data" / "cuidadores.json"
+DATA_FILE = PUBLIC_DIR / "data" / "cuidadores.json"
 
 SERVICOS_VALIDOS = {"passeio", "hospedagem", "cuidados"}
 
@@ -42,7 +42,7 @@ def filtrar_cuidadores(cuidadores, servico=None, bairro=None):
 
 class TecoHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
-        # Só a pasta public/ fica acessível pelo navegador (app.py e data/ não).
+        # Só a pasta public/ fica acessível pelo navegador (o app.py não).
         super().__init__(*args, directory=str(PUBLIC_DIR), **kwargs)
 
     def do_GET(self):
@@ -91,7 +91,7 @@ class TecoHandler(SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    # A porta vem da variável PORT (Railway); localmente usa 8000.
+    # A porta vem da variável PORT, se existir; localmente usa 8000.
     porta = int(os.environ.get("PORT", 8000))
     servidor = ThreadingHTTPServer(("0.0.0.0", porta), TecoHandler)
     print(f"🚀 Servidor online na porta {porta}")

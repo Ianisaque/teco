@@ -10,7 +10,7 @@ O Teco conecta tutores de pets a pessoas que oferecem passeio, hospedagem e cuid
 
 </div>
 
-> **Projeto de demonstração.** A interface e a API local funcionam, mas os cuidadores, as avaliações, os preços e os depoimentos são **exemplos**. Ainda não existem banco de dados, autenticação nem agendamento.
+> **Projeto de demonstração.** A interface funciona, com uma API local opcional, mas os cuidadores, as avaliações, os preços e os depoimentos são **exemplos**. Ainda não existem banco de dados, autenticação nem agendamento.
 
 ## Sobre o projeto
 
@@ -21,7 +21,7 @@ Este repositório é o front-end da plataforma, com uma pequena API em Python qu
 ## Funcionalidades
 
 - **Hero interativo:** seis bichos em pé sobre o card de busca, com os olhos acompanhando o cursor. No celular, que não tem cursor, eles olham em volta sozinhos. Quem desativa animações no sistema vê os bichos parados.
-- **Busca por serviço, região e data**, com validação e mensagens de erro. Os filtros de serviço e região são aplicados pela API.
+- **Busca por serviço, região e data**, com validação e mensagens de erro. Os filtros de serviço e região são aplicados pela API local ou, no GitHub Pages, no próprio navegador.
 - **Cuidadores em destaque:** cards com foto, região, serviços, avaliação e preço, com estados de carregamento, lista vazia e erro. O perfil abre em uma janela.
 - **"Saber mais" de cada serviço:** janela com a explicação do serviço, os cuidadores de demonstração que o oferecem e um botão que aplica o filtro na lista.
 - **Entrar e cadastrar-se**, com validação dos campos (nada é enviado nem salvo).
@@ -47,7 +47,7 @@ Este repositório é o front-end da plataforma, com uma pequena API em Python qu
 ## Tecnologias
 
 - **HTML5, CSS3 e JavaScript** (módulos ES), sem bibliotecas nem frameworks.
-- **Python 3**, só com a biblioteca padrão (`http.server`), para servir o site e a API.
+- **Python 3**, só com a biblioteca padrão (`http.server`), para servir o site e a API ao rodar localmente.
 - Ícones do [Material Design Icons](https://pictogrammers.com/library/mdi/) e fonte [Poppins](https://fonts.google.com/specimen/Poppins), ambos guardados no próprio projeto.
 
 ## Como executar
@@ -66,34 +66,35 @@ Depois abra http://localhost:8000. Para usar outra porta, defina a variável de 
 
 ```
 app.py                    servidor e API (biblioteca padrão do Python)
-data/cuidadores.json      dados de demonstração
 docs/                     imagens usadas neste README
 public/                   tudo que o navegador acessa
   index.html
+  data/cuidadores.json    dados de demonstração
   css/                    styles.css e servicos.css
   js/
     main.js               ponto de entrada
     components/           nav, busca, cuidadores, olhos dos pets, serviços, formulários...
-    services/api.js       acesso à API, ponto único para integrações futuras
+    services/api.js       acesso aos dados (API ou arquivo JSON), ponto único para integrações futuras
     lib/                  utilitários e tipos de serviço
   img/                    logo, avatares, ilustração dos pets, ícones
   fonts/                  Poppins
 ```
 
-Só a pasta `public/` fica acessível pelo navegador. O `app.py` e a pasta `data/` não são servidos.
+Só a pasta `public/` fica acessível pelo navegador (e é ela que vai para o GitHub Pages). O `app.py` não é servido.
 
-## Publicar no Railway
+## Publicar no GitHub Pages
 
-O servidor já lê a porta da variável `PORT` e escuta em `0.0.0.0`, então roda no [Railway](https://railway.com) sem mudanças.
+O site funciona sem servidor: no GitHub Pages não existe a API do `app.py`, então o navegador lê `public/data/cuidadores.json` e aplica os mesmos filtros em JavaScript (`public/js/services/api.js`). A publicação é automática, pelo workflow `.github/workflows/pages.yml`.
 
-1. No Railway, crie um projeto com **Deploy from GitHub repo** e escolha este repositório.
-2. Em **Settings > Deploy**, confirme o *Start Command* `python app.py` (o `railway.json` e o `Procfile` do repositório já indicam o mesmo comando).
-3. Em **Settings > Networking**, clique em **Generate Domain** para receber o link público.
-4. Coloque o link neste README e na descrição do repositório.
+1. No repositório, abra **Settings > Pages**.
+2. Em **Build and deployment > Source**, escolha **GitHub Actions**.
+3. Faça um push na branch `main` (ou rode o workflow em **Actions > Publicar no GitHub Pages > Run workflow**).
+4. Quando terminar, o site fica em `https://ianisaque.github.io/teco/`.
 
-Os planos e limites do Railway mudam com o tempo, então confira os valores atuais em railway.com/pricing.
+## API local
 
-## API
+Disponível só ao rodar `python app.py`.
+
 
 | Rota | Descrição |
 | --- | --- |
@@ -114,7 +115,7 @@ O `index.html` tem um SVG sobre a imagem dos pets, com uma pupila para cada olho
 
 ## Próximos passos
 
-- Banco de dados no lugar de `data/cuidadores.json` (função `carregar_cuidadores` em `app.py`).
+- Banco de dados no lugar de `public/data/cuidadores.json` (função `carregar_cuidadores` em `app.py`).
 - Autenticação: rotas de login e cadastro, ligadas a `public/js/components/auth-forms.js`.
 - Agendamento por data, para que o campo de data da busca passe a filtrar a disponibilidade.
 
