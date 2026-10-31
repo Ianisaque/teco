@@ -4,6 +4,8 @@
 
 **Seu pet bem cuidado. Você mais tranquilo.**
 
+🔗 **[Ver o site no ar](https://ianisaque.github.io/teco/)**
+
 O Teco conecta tutores de pets a pessoas que oferecem passeio, hospedagem e cuidados por algumas horas.
 
 <img src="docs/olhos.gif" alt="Os bichos do hero acompanhando o cursor com os olhos" width="720">
@@ -89,7 +91,7 @@ O site funciona sem servidor: no GitHub Pages não existe a API do `app.py`, ent
 1. No repositório, abra **Settings > Pages**.
 2. Em **Build and deployment > Source**, escolha **GitHub Actions**.
 3. Faça um push na branch `main` (ou rode o workflow em **Actions > Publicar no GitHub Pages > Run workflow**).
-4. Quando terminar, o site fica em `https://ianisaque.github.io/teco/`.
+4. Quando terminar, o site fica em https://ianisaque.github.io/teco/.
 
 ## API local
 
